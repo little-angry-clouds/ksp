@@ -7,6 +7,9 @@ function kgp {
 function ksp {
   export KUBE_PROFILE=$1
   export KUBECONFIG=$KUBE_HOME/$1-config
+  # Because Terraform's k8s provider is stupid, 
+  # let's add another variable that points to the same place
+  export KUBE_CONFIG_PATH=$KUBE_HOME/$1-config
 }
 
 function kube_profiles {
